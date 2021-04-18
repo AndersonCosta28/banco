@@ -52,6 +52,7 @@
     <Compile Include="BuscaDeConta.Designer.cs">
       <DependentUpon>BuscaDeConta.cs</DependentUpon>
     </Compile>
+    <Compile Include="CampoVazioException.cs" />
     <Compile Include="Cliente.cs" />
     <Compile Include="Conta.cs" />
     <Compile Include="ContaCorrente.cs" />
@@ -74,9 +75,13 @@
     <Compile Include="FormCadastroConta.Designer.cs">
       <DependentUpon>FormCadastroConta.cs</DependentUpon>
     </Compile>
+    <Compile Include="ITributacao.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="SaldoInsuficienteExpection.cs" />
     <Compile Include="TotalizadorDeContas.cs" />
+    <Compile Include="TotalizadorDeTributos.cs" />
+    <Compile Include="ValorNegativoExpection.cs" />
     <EmbeddedResource Include="BuscaDeConta.resx">
       <DependentUpon>BuscaDeConta.cs</DependentUpon>
     </EmbeddedResource>

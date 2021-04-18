@@ -25,6 +25,7 @@ namespace banco
 
         private void FormCadastroConta_Load(object sender, EventArgs e)
         {
+            textNumero.Text = Convert.ToString(formPrincipal.numeroDeContas);
             comboTipodeConta.Items.Add("Corrente");
             comboTipodeConta.Items.Add("Poupança");
         }
@@ -32,7 +33,7 @@ namespace banco
         private void NovaConta_Click(object sender, EventArgs e)
         {
             if (comboTipodeConta.SelectedIndex == 0)
-            {
+            {                
                 Conta conta = new ContaCorrente();
                 conta.Numero = Convert.ToInt32(textNumero.Text);
                 conta.Titular = new Cliente(textTitular.Text);
@@ -45,12 +46,15 @@ namespace banco
                 conta.Titular = new Cliente(textTitular.Text);
                 formPrincipal.Adiconar(conta); //Este método usa a ponte para acessar o Form1
             }
-
+            MessageBox.Show("Conta criada com sucesso!");
+            this.Close();
         }
 
         private void comboTipodeConta_SelectedIndexChanged(object sender, EventArgs e)
         {
-
+            textNumero.Text = Convert.ToString(formPrincipal.numeroDeContas);
         }
+
+        
     }
 }

@@ -4,7 +4,9 @@
     {
         public ContaCorrente()
         {
-
+            Setnn();
+            tributavel = false;
+            TipoDeConta = "Corrente";
         }
     }
 }

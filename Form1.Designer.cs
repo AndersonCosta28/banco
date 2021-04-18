@@ -40,7 +40,10 @@ namespace banco
             this.label1 = new System.Windows.Forms.Label();
             this.ValorOperacao = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.label3 = new System.Windows.Forms.Label();
+            this.textTipoDeConta = new System.Windows.Forms.TextBox();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.PagarTributos = new System.Windows.Forms.Button();
             this.botaotransferencia = new System.Windows.Forms.Button();
             this.comboContas2 = new System.Windows.Forms.ComboBox();
             this.comboContas = new System.Windows.Forms.ComboBox();
@@ -52,21 +55,21 @@ namespace banco
             // 
             // textTitular
             // 
-            this.textTitular.Location = new System.Drawing.Point(74, 25);
+            this.textTitular.Location = new System.Drawing.Point(100, 29);
             this.textTitular.Name = "textTitular";
             this.textTitular.Size = new System.Drawing.Size(100, 20);
             this.textTitular.TabIndex = 0;
             // 
             // textNumero
             // 
-            this.textNumero.Location = new System.Drawing.Point(74, 51);
+            this.textNumero.Location = new System.Drawing.Point(100, 55);
             this.textNumero.Name = "textNumero";
             this.textNumero.Size = new System.Drawing.Size(100, 20);
             this.textNumero.TabIndex = 1;
             // 
             // textSaldo
             // 
-            this.textSaldo.Location = new System.Drawing.Point(74, 77);
+            this.textSaldo.Location = new System.Drawing.Point(100, 81);
             this.textSaldo.Name = "textSaldo";
             this.textSaldo.Size = new System.Drawing.Size(100, 20);
             this.textSaldo.TabIndex = 2;
@@ -101,7 +104,7 @@ namespace banco
             // Titular
             // 
             this.Titular.AutoSize = true;
-            this.Titular.Location = new System.Drawing.Point(33, 28);
+            this.Titular.Location = new System.Drawing.Point(59, 32);
             this.Titular.Name = "Titular";
             this.Titular.Size = new System.Drawing.Size(36, 13);
             this.Titular.TabIndex = 6;
@@ -110,7 +113,7 @@ namespace banco
             // Numero
             // 
             this.Numero.AutoSize = true;
-            this.Numero.Location = new System.Drawing.Point(24, 54);
+            this.Numero.Location = new System.Drawing.Point(50, 58);
             this.Numero.Name = "Numero";
             this.Numero.Size = new System.Drawing.Size(44, 13);
             this.Numero.TabIndex = 7;
@@ -119,7 +122,7 @@ namespace banco
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(33, 80);
+            this.label1.Location = new System.Drawing.Point(59, 84);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(34, 13);
             this.label1.TabIndex = 8;
@@ -136,33 +139,62 @@ namespace banco
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.label3);
+            this.groupBox1.Controls.Add(this.textTipoDeConta);
             this.groupBox1.Controls.Add(this.textSaldo);
             this.groupBox1.Controls.Add(this.textTitular);
             this.groupBox1.Controls.Add(this.label1);
             this.groupBox1.Controls.Add(this.textNumero);
             this.groupBox1.Controls.Add(this.Numero);
             this.groupBox1.Controls.Add(this.Titular);
-            this.groupBox1.Location = new System.Drawing.Point(102, 136);
+            this.groupBox1.Location = new System.Drawing.Point(81, 70);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(197, 109);
+            this.groupBox1.Size = new System.Drawing.Size(229, 164);
             this.groupBox1.TabIndex = 10;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Dados da Conta";
             // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(20, 110);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(74, 13);
+            this.label3.TabIndex = 15;
+            this.label3.Text = "Tipo de Conta";
+            // 
+            // textTipoDeConta
+            // 
+            this.textTipoDeConta.Location = new System.Drawing.Point(100, 107);
+            this.textTipoDeConta.Name = "textTipoDeConta";
+            this.textTipoDeConta.Size = new System.Drawing.Size(100, 20);
+            this.textTipoDeConta.TabIndex = 9;
+            // 
             // groupBox2
             // 
+            this.groupBox2.Controls.Add(this.PagarTributos);
             this.groupBox2.Controls.Add(this.botaotransferencia);
             this.groupBox2.Controls.Add(this.comboContas2);
             this.groupBox2.Controls.Add(this.textValor);
             this.groupBox2.Controls.Add(this.button1);
             this.groupBox2.Controls.Add(this.ValorOperacao);
             this.groupBox2.Controls.Add(this.button2);
-            this.groupBox2.Location = new System.Drawing.Point(81, 251);
+            this.groupBox2.Location = new System.Drawing.Point(81, 242);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(254, 130);
+            this.groupBox2.Size = new System.Drawing.Size(250, 181);
             this.groupBox2.TabIndex = 11;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Operações";
+            // 
+            // PagarTributos
+            // 
+            this.PagarTributos.Location = new System.Drawing.Point(23, 146);
+            this.PagarTributos.Name = "PagarTributos";
+            this.PagarTributos.Size = new System.Drawing.Size(206, 23);
+            this.PagarTributos.TabIndex = 15;
+            this.PagarTributos.Text = "Pagar tributos anuais";
+            this.PagarTributos.UseVisualStyleBackColor = true;
+            this.PagarTributos.Click += new System.EventHandler(this.PagarTributos_Click_1);
             // 
             // botaotransferencia
             // 
@@ -215,7 +247,7 @@ namespace banco
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(417, 384);
+            this.ClientSize = new System.Drawing.Size(528, 481);
             this.Controls.Add(this.NovaConta);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.comboContas);
@@ -252,6 +284,9 @@ namespace banco
         private System.Windows.Forms.ComboBox comboContas2;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Button NovaConta;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.TextBox textTipoDeConta;
+        private System.Windows.Forms.Button PagarTributos;
     }
 }
 

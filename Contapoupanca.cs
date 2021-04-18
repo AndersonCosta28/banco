@@ -1,11 +1,22 @@
 ﻿namespace banco
 {
-    class Contapoupanca : Conta
+    class Contapoupanca : Conta, ITributacao
     {
         public Contapoupanca()
         {
-            Taxa = 0.01;
+            Setnn();
+            tributavel = true;
+            Taxa = 1;
+            TipoDeConta = "Poupança";
         }
 
+        
+
+        public double CalcularTributo()
+        {
+            return this.Saldo* 0.03;
+        }
+
+        
     }
 }
