@@ -11,23 +11,39 @@ using System.Windows.Forms;
 namespace banco
 {
     public partial class form1 : Form
-    {
+    {       
+        
         private Conta[] c;
-        public int numeroDeContas; //Calcular números de conta com a função do FORM
+        private List<Conta> contas;
+        public Dictionary<int, Conta> dicionario;
+        public int getContas()
+        {
+            int numeroDeContas = Convert.ToInt32(contas.Count);
+            return numeroDeContas;
+        }
+        //public int numeroDeContas; //Calcular números de conta com a função do FORM
         public void Adiconar(Conta cs)
         {
-            this.c[this.numeroDeContas] = cs;
-            comboContas.Items.Add(numeroDeContas + " - "+ c[numeroDeContas].Titular.Nome);
-            comboContas2.Items.Add(numeroDeContas + " - " + c[numeroDeContas].Titular.Nome);
-            this.numeroDeContas++; 
+            //this.c[this.numeroDeContas] = cs;
+            //comboContas.Items.Add(numeroDeContas + " - "+ c[numeroDeContas].Titular.Nome);
+            //comboContas2.Items.Add(numeroDeContas + " - " + c[numeroDeContas].Titular.Nome);
+            //this.numeroDeContas++;
+            this.contas.Add(cs);
+            comboContas.Items.Add(this.contas.Count + " - " + cs.Titular.Nome);
+            comboContas2.Items.Add(this.contas.Count + " - " + cs.Titular.Nome);
+            
         }
+
         public form1()
         {
             InitializeComponent();
         }
+        
 
         private void Form1_Load(object sender, EventArgs e)
         {
+            this.contas = new List<Conta>();
+            this.dicionario = new Dictionary<int, Conta>();
             int i=0;
             c = new Conta[5];            
 
@@ -43,27 +59,35 @@ namespace banco
             c[2] = new Contapoupanca();            
             c[2].Titular = new Cliente("Ana");
             c[2].Numero = 3;
-            //MessageBox.Show(Convert.ToString(Conta.nn));
-            //MessageBox.Show(Convert.ToString(c[0].tri));
-            //throw new Exception("Valor	do	saque	maior	que	o	saldo");
-
+            
             //this.c[] = new Conta();            
             foreach (Conta contas in c)
             {                
                 if(contas == null)
                 {
-                    numeroDeContas = i;
+                    //numeroDeContas = i;
                 }
                 else
                 {
                     comboContas.Items.Add(i + " - " + contas.Titular.Nome);
                     comboContas2.Items.Add(i + " - " + contas.Titular.Nome);
+                    this.contas.Add(contas);
+                    this.dicionario.Add(contas.Numero,contas);
                     i++;
                 }
-               
+                
             }
             //NovaConta.Enabled = false; desativar botão
-            
+            var filtrados = from c in this.contas
+                            where c.Saldo == 0
+                            where c.Titular.Nome.Equals("Anderson")
+                            select c;
+            foreach(var c in filtrados)
+            {
+               MessageBox.Show(Convert.ToString(c.Numero + c.Saldo));
+            }
+
+
         }
 
         private void botaoDeposito_Click(object sender, EventArgs e)
@@ -172,7 +196,7 @@ namespace banco
             }
         }
 
-    private void NovaConta_Click(object sender, EventArgs e)
+        private void NovaConta_Click(object sender, EventArgs e)
         {
             FormCadastroConta formularioDeCadastro = new FormCadastroConta(this);
             formularioDeCadastro.ShowDialog();
@@ -193,10 +217,33 @@ namespace banco
             c[indice].Sacar(valor);
             MessageBox.Show("Sucesso, verifique seu Saldo atual");
             textSaldo.Text = Convert.ToString(c[indice].Saldo);
+        }
 
+        private void BotaoBuscarConta_Click(object sender, EventArgs e)
+        {
+            int numero = Convert.ToInt32(textBuscaNumero.Text);
+            
+            try 
+            { 
+            Conta conta = dicionario[numero];
+            textNumero.Text = Convert.ToString(conta.Numero);
+            textTitular.Text = conta.Titular.Nome;
+            textSaldo.Text = Convert.ToString(conta.Saldo);
+            textTipoDeConta.Text = conta.TipoDeConta;
+            comboContas2.SelectedIndex = -1;
+            textValor.Text = null;
+            PagarTributos.Enabled = conta.getTributavel();
+            }
+            catch(Exception ex)
+            {
+                MessageBox.Show("Numero de conta inválida");
+            }
+        }
 
-
-
+        private void botaoRelatorio_Click(object sender, EventArgs e)
+        {
+            FormRelatorio form = new FormRelatorio(this.contas);
+            form.ShowDialog();
         }
     }
 }

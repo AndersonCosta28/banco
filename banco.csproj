@@ -6,8 +6,8 @@
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ProjectGuid>{63B77B2F-B6E9-4A02-8DE7-EAB60D0AA67C}</ProjectGuid>
     <OutputType>WinExe</OutputType>
-    <RootNamespace>teste</RootNamespace>
-    <AssemblyName>teste</AssemblyName>
+    <RootNamespace>banco</RootNamespace>
+    <AssemblyName>banco</AssemblyName>
     <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
@@ -46,12 +46,13 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="BuscaDeConta.cs">
+    <Compile Include="FormRelatorio.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="BuscaDeConta.Designer.cs">
-      <DependentUpon>BuscaDeConta.cs</DependentUpon>
+    <Compile Include="FormRelatorio.Designer.cs">
+      <DependentUpon>FormRelatorio.cs</DependentUpon>
     </Compile>
+    <Compile Include="GeradorDeDevedores.cs" />
     <Compile Include="CampoVazioException.cs" />
     <Compile Include="Cliente.cs" />
     <Compile Include="Conta.cs" />
@@ -82,14 +83,14 @@
     <Compile Include="TotalizadorDeContas.cs" />
     <Compile Include="TotalizadorDeTributos.cs" />
     <Compile Include="ValorNegativoExpection.cs" />
-    <EmbeddedResource Include="BuscaDeConta.resx">
-      <DependentUpon>BuscaDeConta.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FormCadastroConta.resx">
       <DependentUpon>FormCadastroConta.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormRelatorio.resx">
+      <DependentUpon>FormRelatorio.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -99,6 +100,7 @@
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
     </Compile>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>

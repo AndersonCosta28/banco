@@ -49,6 +49,10 @@ namespace banco
             this.comboContas = new System.Windows.Forms.ComboBox();
             this.label2 = new System.Windows.Forms.Label();
             this.NovaConta = new System.Windows.Forms.Button();
+            this.textBuscaNumero = new System.Windows.Forms.TextBox();
+            this.BotaoBuscarConta = new System.Windows.Forms.Button();
+            this.label4 = new System.Windows.Forms.Label();
+            this.botaoRelatorio = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.SuspendLayout();
@@ -147,7 +151,7 @@ namespace banco
             this.groupBox1.Controls.Add(this.textNumero);
             this.groupBox1.Controls.Add(this.Numero);
             this.groupBox1.Controls.Add(this.Titular);
-            this.groupBox1.Location = new System.Drawing.Point(81, 70);
+            this.groupBox1.Location = new System.Drawing.Point(55, 105);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(229, 164);
             this.groupBox1.TabIndex = 10;
@@ -179,7 +183,7 @@ namespace banco
             this.groupBox2.Controls.Add(this.button1);
             this.groupBox2.Controls.Add(this.ValorOperacao);
             this.groupBox2.Controls.Add(this.button2);
-            this.groupBox2.Location = new System.Drawing.Point(81, 242);
+            this.groupBox2.Location = new System.Drawing.Point(55, 275);
             this.groupBox2.Name = "groupBox2";
             this.groupBox2.Size = new System.Drawing.Size(250, 181);
             this.groupBox2.TabIndex = 11;
@@ -235,7 +239,7 @@ namespace banco
             // 
             // NovaConta
             // 
-            this.NovaConta.Location = new System.Drawing.Point(315, 23);
+            this.NovaConta.Location = new System.Drawing.Point(256, 23);
             this.NovaConta.Name = "NovaConta";
             this.NovaConta.Size = new System.Drawing.Size(75, 23);
             this.NovaConta.TabIndex = 14;
@@ -243,11 +247,51 @@ namespace banco
             this.NovaConta.UseVisualStyleBackColor = true;
             this.NovaConta.Click += new System.EventHandler(this.NovaConta_Click);
             // 
+            // textBuscaNumero
+            // 
+            this.textBuscaNumero.Location = new System.Drawing.Point(101, 52);
+            this.textBuscaNumero.Name = "textBuscaNumero";
+            this.textBuscaNumero.Size = new System.Drawing.Size(121, 20);
+            this.textBuscaNumero.TabIndex = 15;
+            // 
+            // BotaoBuscarConta
+            // 
+            this.BotaoBuscarConta.Location = new System.Drawing.Point(256, 52);
+            this.BotaoBuscarConta.Name = "BotaoBuscarConta";
+            this.BotaoBuscarConta.Size = new System.Drawing.Size(75, 23);
+            this.BotaoBuscarConta.TabIndex = 16;
+            this.BotaoBuscarConta.Text = "Buscar";
+            this.BotaoBuscarConta.UseVisualStyleBackColor = true;
+            this.BotaoBuscarConta.Click += new System.EventHandler(this.BotaoBuscarConta_Click);
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(31, 55);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(64, 13);
+            this.label4.TabIndex = 17;
+            this.label4.Text = "Nº de conta";
+            // 
+            // botaoRelatorio
+            // 
+            this.botaoRelatorio.Location = new System.Drawing.Point(131, 462);
+            this.botaoRelatorio.Name = "botaoRelatorio";
+            this.botaoRelatorio.Size = new System.Drawing.Size(75, 23);
+            this.botaoRelatorio.TabIndex = 18;
+            this.botaoRelatorio.Text = "Relatório";
+            this.botaoRelatorio.UseVisualStyleBackColor = true;
+            this.botaoRelatorio.Click += new System.EventHandler(this.botaoRelatorio_Click);
+            // 
             // form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(528, 481);
+            this.ClientSize = new System.Drawing.Size(347, 481);
+            this.Controls.Add(this.botaoRelatorio);
+            this.Controls.Add(this.label4);
+            this.Controls.Add(this.BotaoBuscarConta);
+            this.Controls.Add(this.textBuscaNumero);
             this.Controls.Add(this.NovaConta);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.comboContas);
@@ -287,6 +331,10 @@ namespace banco
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.TextBox textTipoDeConta;
         private System.Windows.Forms.Button PagarTributos;
+        private System.Windows.Forms.TextBox textBuscaNumero;
+        private System.Windows.Forms.Button BotaoBuscarConta;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.Button botaoRelatorio;
     }
 }
 
